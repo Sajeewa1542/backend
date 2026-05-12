@@ -1,0 +1,178 @@
+Task ID,Task_Summary_Name,Start_Date,Finish_Date,Duration,Predecessors
+1,,2022 October 17 8:00 AM,2024 October 16 12:00 PM,533 days,
+1.1,REHABILITATIONOFTHEA017 ROAD CORRIDOR PROJECT(SURIYAKANDA-RAKWANA)SECTION FROM CH.112+600KM TO CH.118+600KM),2022 October 17 8:00 AM,2022 October 17 8:00 AM,0 days,
+1.2,REHABILITATIONOFTHEA017 ROAD CORRIDOR PROJECT(SURIYAKANDA-RAKWANA)SECTION FROM CH.112+600KM TO CH.118+600KM),2022 October 17 8:00 AM,2023 September 25 12:00 PM,250 days,
+1.2.1,Contractors mobilization,2022 October 17 8:00 AM,2022 November 24 12:00 PM,30 days,2
+1.2.2,Contractors mobilization,2022 October 17 8:00 AM,2023 September 25 12:00 PM,250 days,2
+1.2.3,Contractors mobilization,2023 March 23 1:00 PM,2023 May 17 12:00 PM,30 days,2FS+120d
+1.3,REHABILITATIONOFTHEA017 ROAD CORRIDOR PROJECT(SURIYAKANDA-RAKWANA)SECTION FROM CH.112+600KM TO CH.118+600KM),2022 November 24 1:00 PM,2022 December 02 5:00 PM,7 days,
+1.3.1,Initial Documents Submissions,2022 November 24 1:00 PM,2022 December 02 5:00 PM,7 days,4
+1.3.2,Initial Documents Submissions,2022 November 24 1:00 PM,2022 December 02 5:00 PM,7 days,4
+1.3.3,Initial Documents Submissions,2022 November 24 1:00 PM,2022 December 02 5:00 PM,7 days,4
+1.4,REHABILITATIONOFTHEA017 ROAD CORRIDOR PROJECT(SURIYAKANDA-RAKWANA)SECTION FROM CH.112+600KM TO CH.118+600KM),2022 October 17 8:00 AM,2024 September 16 12:00 PM,510 days,
+1.4.1,Provide Main Laboratory & Equipment,2022 October 17 8:00 AM,2023 January 03 12:00 PM,60 days,2
+1.4.2,Provide Main Laboratory & Equipment,2023 January 03 1:00 PM,2024 September 16 12:00 PM,450 days,2FS+60d
+1.5,REHABILITATIONOFTHEA017 ROAD CORRIDOR PROJECT(SURIYAKANDA-RAKWANA)SECTION FROM CH.112+600KM TO CH.118+600KM),2022 October 17 8:00 AM,2022 November 24 12:00 PM,30 days,
+1.5.1,Insurance and Bonds,2022 October 17 8:00 AM,2022 November 24 12:00 PM,30 days,2
+1.5.2,Insurance and Bonds,2022 October 17 8:00 AM,2022 November 24 12:00 PM,30 days,2
+1.5.3,Insurance and Bonds,2022 October 17 8:00 AM,2022 November 24 12:00 PM,30 days,2
+1.5.4,Insurance and Bonds,2022 October 17 8:00 AM,2022 November 24 12:00 PM,30 days,2
+1.5.5,Insurance and Bonds,2022 October 17 8:00 AM,2022 October 25 12:00 PM,7 days,2
+1.5.6,Insurance and Bonds,2022 October 17 8:00 AM,2022 October 25 12:00 PM,7 days,2
+1.6,REHABILITATIONOFTHEA017 ROAD CORRIDOR PROJECT(SURIYAKANDA-RAKWANA)SECTION FROM CH.112+600KM TO CH.118+600KM),2022 October 17 8:00 AM,2024 October 16 12:00 PM,533 days,
+1.6.1,Employer/ Engineer Facilities,2022 November 24 1:00 PM,2024 October 16 12:00 PM,503 days,2FS+30d
+1.6.2,Employer/ Engineer Facilities,2022 October 17 8:00 AM,2022 November 24 12:00 PM,30 days,2
+1.7,REHABILITATIONOFTHEA017 ROAD CORRIDOR PROJECT(SURIYAKANDA-RAKWANA)SECTION FROM CH.112+600KM TO CH.118+600KM),2022 October 24 1:00 PM,2024 February 01 5:00 PM,342 days,
+1.7.1,Design Works,2022 October 24 1:00 PM,2023 January 05 12:00 PM,56 days,
+1.7.1.1,Survey Works,2022 October 24 1:00 PM,2022 October 26 12:00 PM,2 days,2FS+6d
+1.7.1.2,Survey Works,2022 October 26 1:00 PM,2022 October 28 12:00 PM,2 days,26
+1.7.1.3,Survey Works,2022 October 28 1:00 PM,2022 November 01 5:00 PM,3 days,27
+1.7.1.4,Survey Works,2022 November 02 8:00 AM,2022 November 09 12:00 PM,5 days,28
+1.7.1.5,Survey Works,2022 November 09 1:00 PM,2022 November 22 12:00 PM,10 days,29
+1.7.1.6,Survey Works,2022 November 22 1:00 PM,2022 November 25 12:00 PM,3 days,30
+1.7.1.7,Survey Works,2022 November 25 1:00 PM,2022 December 05 12:00 PM,7 days,31
+1.7.1.8,Survey Works,2022 December 05 1:00 PM,2022 December 23 12:00 PM,14 days,32
+1.7.1.9,Survey Works,2022 December 23 1:00 PM,2022 December 27 5:00 PM,3 days,33
+1.7.1.10,Survey Works,2022 December 28 8:00 AM,2023 January 05 12:00 PM,7 days,34
+1.7.2,Design Works,2022 October 24 1:00 PM,2023 February 11 12:00 PM,84 days,
+1.7.2.1,Soil Investigation & pavement Design,2022 October 24 1:00 PM,2022 November 11 12:00 PM,14 days,2FS+6d
+1.7.2.2,Soil Investigation & pavement Design,2022 October 28 1:00 PM,2022 November 16 5:00 PM,14 days,37FS-10d
+1.7.2.3,Soil Investigation & pavement Design,2022 November 01 8:00 AM,2022 November 21 12:00 PM,15 days,38FS-12d
+1.7.2.4,Soil Investigation & pavement Design,2022 November 21 1:00 PM,2022 December 27 5:00 PM,28 days,39
+1.7.2.5,Soil Investigation & pavement Design,2023 January 05 1:00 PM,2023 January 24 5:00 PM,14 days,"35,40"
+1.7.2.6,Soil Investigation & pavement Design,2023 January 25 8:00 AM,2023 February 11 12:00 PM,14 days,41
+1.7.3,Design Works,2023 February 13 8:00 AM,2023 June 05 12:00 PM,74 days,
+1.7.3.1,Design of Roads,2023 February 13 8:00 AM,2023 March 24 12:00 PM,31 days,42
+1.7.3.1.1,Submission of Vertical Alignment,2023 February 13 8:00 AM,2023 March 02 5:00 PM,15 days,42
+1.7.3.1.2,Submission of Vertical Alignment,2023 March 03 8:00 AM,2023 March 16 5:00 PM,10 days,45
+1.7.3.1.3,Submission of Vertical Alignment,2023 March 17 8:00 AM,2023 March 24 12:00 PM,6 days,46
+1.7.3.2,Design of Roads,2023 March 03 8:00 AM,2023 April 03 12:00 PM,23 days,
+1.7.3.2.1,Engineer approval for VA,2023 March 03 8:00 AM,2023 March 13 5:00 PM,7 days,45
+1.7.3.2.2,Engineer approval for VA,2023 March 17 8:00 AM,2023 March 25 12:00 PM,7 days,46
+1.7.3.2.3,Engineer approval for VA,2023 March 24 1:00 PM,2023 April 03 12:00 PM,7 days,47
+1.7.3.3,Design of Roads,2023 March 14 8:00 AM,2023 May 25 5:00 PM,45 days,
+1.7.3.3.1,Submission of Design Cross Sections,2023 March 14 8:00 AM,2023 March 20 12:00 PM,5 days,49
+1.7.3.3.2,Submission of Design Cross Sections,2023 March 20 1:00 PM,2023 March 31 5:00 PM,10 days,53
+1.7.3.3.3,Submission of Design Cross Sections,2023 April 01 8:00 AM,2023 April 08 12:00 PM,5 days,54
+1.7.3.3.4,Submission of Design Cross Sections,2023 April 21 8:00 AM,2023 April 27 12:00 PM,5 days,55
+1.7.3.3.5,Submission of Design Cross Sections,2023 April 27 1:00 PM,2023 May 12 5:00 PM,10 days,56
+1.7.3.3.6,Submission of Design Cross Sections,2023 May 13 8:00 AM,2023 May 25 5:00 PM,10 days,57
+1.7.3.4,Design of Roads,2023 March 20 1:00 PM,2023 June 05 12:00 PM,47 days,
+1.7.3.4.1,Engineer approval for DCS,2023 March 20 1:00 PM,2023 March 28 5:00 PM,7 days,53
+1.7.3.4.2,Engineer approval for DCS,2023 April 01 8:00 AM,2023 April 08 12:00 PM,5 days,54
+1.7.3.4.3,Engineer approval for DCS,2023 April 21 8:00 AM,2023 April 29 12:00 PM,7 days,55
+1.7.3.4.4,Engineer approval for DCS,2023 April 27 1:00 PM,2023 May 09 5:00 PM,7 days,56
+1.7.3.4.5,Engineer approval for DCS,2023 May 13 8:00 AM,2023 May 22 5:00 PM,7 days,57
+1.7.3.4.6,Engineer approval for DCS,2023 May 26 8:00 AM,2023 June 05 12:00 PM,7 days,58
+1.7.4,Design Works,2023 March 29 8:00 AM,2024 January 13 12:00 PM,210 days,
+1.7.4.1,Culverts Design,2023 March 29 8:00 AM,2024 January 01 5:00 PM,200 days,60
+1.7.4.2,Culverts Design,2023 April 24 1:00 PM,2024 January 13 12:00 PM,200 days,67FS-190d
+1.7.5,Design Works,2023 April 03 1:00 PM,2023 June 22 12:00 PM,50 days,
+1.7.5.1,Bridge Design,2023 April 03 1:00 PM,2023 May 26 5:00 PM,30 days,48
+1.7.5.2,Bridge Design,2023 April 22 8:00 AM,2023 June 22 12:00 PM,45 days,70FS-25d
+1.7.6,Design Works,2023 April 28 1:00 PM,2024 February 01 5:00 PM,210 days,
+1.7.6.1,Design of Retaining structures,2023 April 28 1:00 PM,2024 January 18 5:00 PM,200 days,60FS+14d
+1.7.6.2,Design of Retaining structures,2023 May 15 1:00 PM,2024 February 01 5:00 PM,200 days,73FS-190d
+1.8,REHABILITATIONOFTHEA017 ROAD CORRIDOR PROJECT(SURIYAKANDA-RAKWANA)SECTION FROM CH.112+600KM TO CH.118+600KM),2022 December 28 8:00 AM,2024 October 16 12:00 PM,478 days,
+1.8.1,Civil Works,2022 December 28 8:00 AM,2023 October 13 12:00 PM,209 days,
+1.8.1.1,Utility Relocation & Tree Removal,2023 March 23 1:00 PM,2023 October 13 12:00 PM,144 days,
+1.8.1.1.1,Water Lines,2023 March 23 1:00 PM,2023 March 28 5:00 PM,4 days,2FS+120d
+1.8.1.1.2,Water Lines,2023 March 29 8:00 AM,2023 March 30 5:00 PM,2 days,78
+1.8.1.1.3,Water Lines,2023 March 31 8:00 AM,2023 April 06 12:00 PM,4 days,79
+1.8.1.1.4,Water Lines,2023 April 06 1:00 PM,2023 April 25 12:00 PM,5 days,80
+1.8.1.1.5,Water Lines,2023 April 25 1:00 PM,2023 May 04 5:00 PM,7 days,81
+1.8.1.1.6,Water Lines,2023 May 08 8:00 AM,2023 May 12 5:00 PM,5 days,82
+1.8.1.1.7,Water Lines,2023 July 27 8:00 AM,2023 October 13 12:00 PM,60 days,"157FS-50d,83"
+1.8.1.2,Utility Relocation & Tree Removal,2022 December 28 8:00 AM,2023 October 10 12:00 PM,206 days,
+1.8.1.2.1,CEB Poles,2022 December 28 8:00 AM,2023 January 02 12:00 PM,4 days,34
+1.8.1.2.2,CEB Poles,2023 January 02 1:00 PM,2023 January 20 12:00 PM,14 days,86
+1.8.1.2.3,CEB Poles,2023 January 20 1:00 PM,2023 January 25 5:00 PM,4 days,87
+1.8.1.2.4,CEB Poles,2023 January 26 8:00 AM,2023 February 13 5:00 PM,14 days,88
+1.8.1.2.5,CEB Poles,2023 February 14 8:00 AM,2023 March 22 12:00 PM,28 days,89
+1.8.1.2.6,CEB Poles,2023 March 22 1:00 PM,2023 April 21 5:00 PM,14 days,90
+1.8.1.2.7,CEB Poles,2023 June 14 8:00 AM,2023 October 10 12:00 PM,90 days,"91,157SS+7d"
+1.8.1.3,Utility Relocation & Tree Removal,2023 January 02 8:00 AM,2023 October 12 5:00 PM,205 days,
+1.8.1.3.1,SLT Poles,2023 January 02 1:00 PM,2023 January 07 12:00 PM,4 days,86
+1.8.1.3.2,SLT Poles,2023 January 09 8:00 AM,2023 January 10 5:00 PM,2 days,94
+1.8.1.3.3,SLT Poles,2023 January 11 8:00 AM,2023 January 16 12:00 PM,4 days,95
+1.8.1.3.4,SLT Poles,2023 January 16 1:00 PM,2023 January 21 12:00 PM,5 days,96
+1.8.1.3.5,SLT Poles,2023 January 23 8:00 AM,2023 January 31 12:00 PM,7 days,97
+1.8.1.3.6,SLT Poles,2023 January 31 1:00 PM,2023 February 07 12:00 PM,5 days,98
+1.8.1.3.7,SLT Poles,2023 July 27 8:00 AM,2023 October 13 12:00 PM,60 days,"99,157FS-50d"
+1.8.2,Civil Works,2023 March 28 5:00 PM,2023 March 28 5:00 PM,0 days,"60,23,20,19,18,17,16,15,12,10,9,8"
+1.8.3,Civil Works,2023 May 04 8:00 AM,2024 September 04 12:00 PM,360 days,
+1.8.3.1,Culvert Construction,2023 May 04 8:00 AM,2024 June 17 12:00 PM,300 days,68SS+7d
+1.8.3.2,Culvert Construction,2023 May 18 1:00 PM,2024 September 04 12:00 PM,350 days,103FS-290d
+1.8.4,Civil Works,2023 May 27 8:00 AM,2024 July 27 12:00 PM,314 days,
+1.8.4.1,Bridge Construction,2023 May 27 8:00 AM,2024 March 12 12:00 PM,220 days,70
+1.8.4.1.1,Bridge No.115/4-Reconstruction (Cell Type),2023 May 27 8:00 AM,2023 June 02 12:00 PM,5 days,70
+1.8.4.1.2,Bridge No.115/4-Reconstruction (Cell Type),2023 June 02 1:00 PM,2023 June 15 5:00 PM,10 days,107
+1.8.4.1.3,Bridge No.115/4-Reconstruction (Cell Type),2023 June 16 8:00 AM,2023 July 06 12:00 PM,15 days,108
+1.8.4.1.4,Bridge No.115/4-Reconstruction (Cell Type),2023 July 06 1:00 PM,2023 August 02 12:00 PM,20 days,109
+1.8.4.1.5,Bridge No.115/4-Reconstruction (Cell Type),2023 August 02 1:00 PM,2023 September 08 5:00 PM,30 days,110
+1.8.4.1.6,Bridge No.115/4-Reconstruction (Cell Type),2023 September 09 8:00 AM,2023 September 21 5:00 PM,10 days,111
+1.8.4.1.7,Bridge No.115/4-Reconstruction (Cell Type),2023 September 22 8:00 AM,2023 September 29 12:00 PM,5 days,"112,110FS+28d"
+1.8.4.1.8,Bridge No.115/4-Reconstruction (Cell Type),2023 September 29 1:00 PM,2023 October 12 12:00 PM,10 days,113
+1.8.4.1.9,Bridge No.115/4-Reconstruction (Cell Type),2023 October 12 1:00 PM,2023 November 01 12:00 PM,15 days,114
+1.8.4.1.10,Bridge No.115/4-Reconstruction (Cell Type),2023 November 01 1:00 PM,2023 November 27 12:00 PM,20 days,115
+1.8.4.1.11,Bridge No.115/4-Reconstruction (Cell Type),2023 November 27 1:00 PM,2024 January 05 5:00 PM,30 days,116
+1.8.4.1.12,Bridge No.115/4-Reconstruction (Cell Type),2024 January 06 8:00 AM,2024 January 18 5:00 PM,10 days,117
+1.8.4.1.13,Bridge No.115/4-Reconstruction (Cell Type),2024 January 19 8:00 AM,2024 March 12 12:00 PM,40 days,118
+1.8.4.2,Bridge Construction,2023 July 06 1:00 PM,2024 July 27 12:00 PM,284 days,"106FS-190d,71"
+1.8.4.2.1,Bridge No.116/5-Reconstruction (Abutment Type),2023 July 06 1:00 PM,2023 July 12 5:00 PM,5 days,71
+1.8.4.2.2,Bridge No.116/5-Reconstruction (Abutment Type),2023 July 13 8:00 AM,2023 August 02 12:00 PM,15 days,121
+1.8.4.2.3,Bridge No.116/5-Reconstruction (Abutment Type),2023 August 02 1:00 PM,2023 August 28 12:00 PM,20 days,122
+1.8.4.2.4,Bridge No.116/5-Reconstruction (Abutment Type),2023 August 28 1:00 PM,2023 September 05 5:00 PM,7 days,123
+1.8.4.2.5,Bridge No.116/5-Reconstruction (Abutment Type),2023 September 06 8:00 AM,2023 September 25 12:00 PM,15 days,124
+1.8.4.2.6,Bridge No.116/5-Reconstruction (Abutment Type),2023 September 25 1:00 PM,2023 October 20 5:00 PM,20 days,125
+1.8.4.2.7,Bridge No.116/5-Reconstruction (Abutment Type),2023 October 21 8:00 AM,2023 November 29 12:00 PM,30 days,126
+1.8.4.2.8,Bridge No.116/5-Reconstruction (Abutment Type),2023 November 29 1:00 PM,2023 December 12 12:00 PM,10 days,127
+1.8.4.2.9,Bridge No.116/5-Reconstruction (Abutment Type),2023 December 12 1:00 PM,2023 December 18 5:00 PM,5 days,"128,126FS+28d"
+1.8.4.2.10,Bridge No.116/5-Reconstruction (Abutment Type),2023 December 19 8:00 AM,2024 January 09 12:00 PM,15 days,129
+1.8.4.2.11,Bridge No.116/5-Reconstruction (Abutment Type),2024 January 09 1:00 PM,2024 February 05 12:00 PM,20 days,130
+1.8.4.2.12,Bridge No.116/5-Reconstruction (Abutment Type),2024 February 05 1:00 PM,2024 February 13 5:00 PM,7 days,131
+1.8.4.2.13,Bridge No.116/5-Reconstruction (Abutment Type),2024 February 14 8:00 AM,2024 March 04 5:00 PM,15 days,132
+1.8.4.2.14,Bridge No.116/5-Reconstruction (Abutment Type),2024 March 05 8:00 AM,2024 March 29 12:00 PM,20 days,133
+1.8.4.2.15,Bridge No.116/5-Reconstruction (Abutment Type),2024 March 29 1:00 PM,2024 May 21 12:00 PM,30 days,134
+1.8.4.2.16,Bridge No.116/5-Reconstruction (Abutment Type),2024 May 21 1:00 PM,2024 June 05 12:00 PM,10 days,135
+1.8.4.2.17,Bridge No.116/5-Reconstruction (Abutment Type),2024 June 05 1:00 PM,2024 July 27 12:00 PM,40 days,136
+1.8.5,Civil Works,2023 June 21 1:00 PM,2024 June 20 12:00 PM,267 days,
+1.8.5.1,Construction of Drains,2023 June 21 1:00 PM,2023 November 24 5:00 PM,120 days,58FS+20d
+1.8.5.2,Construction of Drains,2023 July 12 8:00 AM,2023 December 29 12:00 PM,130 days,139FS-105d
+1.8.5.3,Construction of Drains,2023 July 14 8:00 AM,2024 June 20 12:00 PM,250 days,157SS+30d
+1.8.6,Civil Works,2023 June 05 1:00 PM,2024 August 12 5:00 PM,320 days,
+1.8.6.1,Construction of Retaining Walls,2023 June 05 1:00 PM,2024 August 12 5:00 PM,320 days,68SS+30d
+1.8.7,Civil Works,2023 January 05 1:00 PM,2024 September 24 5:00 PM,454 days,
+1.8.7.1,Construction of Road Pavement,2023 March 29 8:00 AM,2023 August 28 12:00 PM,104 days,
+1.8.7.1.1,Site Clearing,2023 March 29 8:00 AM,2023 April 29 12:00 PM,15 days,101
+1.8.7.1.2,Site Clearing,2023 March 29 8:00 AM,2023 August 09 5:00 PM,90 days,146SS
+1.8.7.1.3,Site Clearing,2023 April 28 1:00 PM,2023 August 28 12:00 PM,90 days,147FF+14d
+1.8.7.2,Construction of Road Pavement,2023 May 02 8:00 AM,2023 July 31 12:00 PM,68 days,
+1.8.7.2.1,Reconstruction existing bases,2023 May 02 8:00 AM,2023 May 22 5:00 PM,15 days,146
+1.8.7.2.2,Reconstruction existing bases,2023 May 13 8:00 AM,2023 July 31 12:00 PM,60 days,150FS-7d
+1.8.7.3,Construction of Road Pavement,2023 May 02 8:00 AM,2023 September 11 12:00 PM,100 days,
+1.8.7.3.1,Embankment Construction,2023 May 02 8:00 AM,2023 August 09 5:00 PM,75 days,146
+1.8.7.3.2,Embankment Construction,2023 May 16 1:00 PM,2023 September 11 12:00 PM,90 days,153FS-65d
+1.8.7.4,Construction of Road Pavement,2023 January 05 1:00 PM,2023 October 31 12:00 PM,215 days,
+1.8.7.4.1,Roadway Excavation & Sub base construction,2023 January 05 1:00 PM,2023 September 16 12:00 PM,182 days,35
+1.8.7.4.2,Roadway Excavation & Sub base construction,2023 June 05 1:00 PM,2023 September 30 12:00 PM,90 days,"147FS-50d,156FF"
+1.8.7.4.3,Roadway Excavation & Sub base construction,2023 June 17 8:00 AM,2023 October 13 12:00 PM,90 days,157SS+10d
+1.8.7.4.4,Roadway Excavation & Sub base construction,2023 June 05 1:00 PM,2023 October 13 12:00 PM,100 days,157FS-90d
+1.8.7.4.5,Roadway Excavation & Sub base construction,2023 June 12 8:00 AM,2023 October 31 12:00 PM,108 days,159FS-95d
+1.8.7.5,Construction of Road Pavement,2023 June 28 8:00 AM,2024 August 14 5:00 PM,304 days,
+1.8.7.5.1,Base and Asphalt surfacing works,2023 June 28 8:00 AM,2024 June 05 12:00 PM,250 days,160FS-95d
+1.8.7.5.2,Base and Asphalt surfacing works,2023 July 31 1:00 PM,2024 July 08 5:00 PM,250 days,162FS-225d
+1.8.7.5.3,Base and Asphalt surfacing works,2023 October 10 1:00 PM,2024 July 12 5:00 PM,200 days,"92,163FS-225d,65,64,63,62,61,50,51,5,6"
+1.8.7.5.4,Base and Asphalt surfacing works,2023 November 11 8:00 AM,2024 August 14 5:00 PM,200 days,"164FS-175d,151,84,158"
+1.8.7.6,Construction of Road Pavement,2023 August 03 1:00 PM,2024 September 24 5:00 PM,307 days,
+1.8.7.6.1,Incidental Construction,2024 March 04 8:00 AM,2024 August 22 12:00 PM,120 days,164FS-90d
+1.8.7.6.2,Incidental Construction,2024 June 17 1:00 PM,2024 September 04 12:00 PM,60 days,"103,106"
+1.8.7.6.3,Incidental Construction,2024 August 26 8:00 AM,2024 September 06 12:00 PM,10 days,165FS+7d
+1.8.7.6.4,Incidental Construction,2024 September 06 1:00 PM,2024 September 24 5:00 PM,13 days,169
+1.8.7.6.5,Incidental Construction,2024 September 06 1:00 PM,2024 September 20 12:00 PM,10 days,169
+1.8.7.6.6,Incidental Construction,2023 August 03 1:00 PM,2024 May 03 5:00 PM,200 days,157SS+45d
+1.8.8,Civil Works,2024 September 20 1:00 PM,2024 October 16 12:00 PM,20 days,
+1.8.8.1,Demobilization & Handing Over,2024 September 20 1:00 PM,2024 October 08 5:00 PM,14 days,"171,140"
+1.8.8.2,Demobilization & Handing Over,2024 September 27 8:00 AM,2024 October 15 12:00 PM,14 days,174FS-9d
+1.8.8.3,Demobilization & Handing Over,2024 October 15 1:00 PM,2024 October 16 12:00 PM,1 day,"141,143,74,120,68,104,174,175"
+2,,2024 October 16 12:00 PM,2024 October 16 12:00 PM,0 days,"176,101,171,168,167,148,154,170,13,22,172,175,100,137,119"

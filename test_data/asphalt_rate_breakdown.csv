@@ -1,0 +1,15 @@
+Item Ref,Item Code,Description,Unit,Rate,Rate Source
+501,501,Excavation and grading,m3,420,Contract
+502,502,Subgrade preparation,m2,250,Contract
+503,503,Granular base course 300mm,m3,1200,Contract
+504,504,Granular sub-base course,m3,800,Contract
+505(1),505(1),Asphalt base course 100mm,m2,950,Contract
+506(1),506(1),Asphalt wearing course 40mm,m2,1472,Contract
+507,507,PVC pipe 100mm,m,450,BSR
+508,508,Concrete pipe 150mm,m,520,BSR
+509,509,Safety barriers,m,2500,Contract
+510,510,Signage and markings,km,15000,Contract
+512,512,Ceramic tiles,m2,3850,Contract
+519,519,Granite tiles,m2,9300,Quotation
+514,514,Excavation specialized,m3,700,HSR
+515,515,RCC beams reinforced,m3,28000,Contract

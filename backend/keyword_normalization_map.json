@@ -1,0 +1,44 @@
+{
+  "asphalt": "asphalt wearing course",
+  "wearing course": "asphalt wearing course",
+  "surfacing": "asphalt wearing course",
+  "road surfacing": "asphalt wearing course",
+  "junction tie": "asphalt wearing course",
+  "edge widening": "asphalt wearing course",
+  
+  "excavation": "excavation foundation",
+  "foundation": "excavation foundation",
+  "trench": "excavation foundation",
+  "digging": "excavation foundation",
+  
+  "tiles": "floor and wall tiling",
+  "tiling": "floor and wall tiling",
+  "floor finish": "floor and wall tiling",
+  "granite": "floor and wall tiling",
+  "ceramic": "floor and wall tiling",
+  "tile finish": "floor and wall tiling",
+  
+  "paving": "external paving drainage",
+  "interlocking": "external paving drainage",
+  "driveway": "external paving drainage",
+  "external works": "external paving drainage",
+  "pavers": "external paving drainage",
+  
+  "doors": "doors and windows",
+  "timber": "doors and windows",
+  "door set": "doors and windows",
+  "wooden": "doors and windows",
+  "shutter": "doors and windows",
+  "window": "doors and windows",
+  
+  "ceiling": "ceiling works",
+  "gypsum": "ceiling works",
+  "panel": "ceiling works",
+  "suspended": "ceiling works",
+  "false ceiling": "ceiling works",
+  
+  "waterproofing": "waterproofing",
+  "toilet": "waterproofing",
+  "wet area": "waterproofing",
+  "bathroom": "waterproofing"
+}

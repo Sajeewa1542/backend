@@ -1,0 +1,89 @@
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python caches and build files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# Project specific data / database files
+uploaded_files/
+construction_data.db
+*.db
+*.sqlite3
+
+# Generated reports / proposal outputs
+variation_proposal.pdf
+backend/generated_reports/
+
+# Backend runtime/session/generated data
+backend/data/
+backend/data_test/
+
+# Backup files created during fixing/refactoring
+*_BACKUP.py
+*_BACKUP.txt
+*_BACKUP.*
+*.bak
+
+# Accidental copied backend inside frontend
+frontend/backend/
+
+# Frontend dependencies and builds
+frontend/node_modules/
+frontend/dist/
+node_modules/
+dist/
+
+# Local debug/runtime outputs
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local debug/test scripts not required for final prototype
+debug_chat.py
+fix_main_patch.py
+test_asphalt_case.py
+test_candidates.py
+test_full_flow.py
+test_quick.py

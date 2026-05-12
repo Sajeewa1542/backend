@@ -1,0 +1,197 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║  HYBRID VARIATION EVALUATION PROTOTYPE - QUICK START GUIDE                 ║
+║  Status: ✅ FULLY OPERATIONAL                                             ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ MINIMUM REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Python 3.10+          (check: python --version)
+✅ Node.js 18+           (check: node --version)  
+✅ Groq API Key          (get from: https://console.groq.com)
+✅ 2 Terminal Windows    (one for backend, one for frontend)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 5-MINUTE SETUP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TERMINAL 1 - BACKEND:
+────────────────────
+1. Navigate to project:
+   cd c:\Chatbot\Wickramasingha\ SP\Hybrid-Chatbot-for-Evaluation-of-Variation-Proposals
+
+2. Install dependencies:
+   pip install -r backend/requirements.txt
+
+3. Configure API key (create/edit backend/.env):
+   GROQ_API_KEY=your_api_key_here
+
+4. Start backend:
+   python -m backend.main
+
+   ✅ Wait for: "Application startup complete"
+   ✅ Backend URL: http://localhost:8000
+
+TERMINAL 2 - FRONTEND:
+─────────────────────
+1. Navigate to frontend:
+   cd frontend
+
+2. Install dependencies:
+   npm install
+
+3. Configure if needed (verify frontend/.env):
+   VITE_API_BASE_URL=http://localhost:8000
+
+4. Start frontend:
+   npm run dev
+
+   ✅ Wait for: "VITE vX.X.X ready"
+   ✅ Frontend URL: http://localhost:5174
+
+BROWSER:
+────────
+5. Open application:
+   http://localhost:5174
+
+   ✅ You should see the Welcome page
+   ✅ Click "Create New Project" to get started
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ VERIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Check backend health:
+  curl http://localhost:8000/health
+
+Expected response:
+  {"status": "healthy", "timestamp": "2026-05-07T12:50:32"}
+
+Check frontend:
+  Open http://localhost:5174 in browser
+  You should see the Variation Evaluation UI with no errors
+
+API Documentation:
+  http://localhost:8000/docs (Swagger UI)
+  http://localhost:8000/redoc (ReDoc)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ NEXT STEPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Read Documentation:
+   • SETUP_GUIDE.md - Detailed setup with troubleshooting
+   • README.md - Project overview and features
+   • PROJECT_STATUS.md - Complete system status
+   • USER_MANUAL.md - How to use the system
+   • USER_FLOW.md - Example workflow
+
+2. Test with Sample Files:
+   Located in: test_data/
+   • sample_boq.csv
+   • sample_rate_breakdown.csv
+   • sample_schedule.csv
+
+3. Explore API:
+   • Visit http://localhost:8000/docs
+   • Test endpoints in Swagger UI
+   • Review API documentation
+
+4. Create Your First Variation:
+   • Click "Create New Project"
+   • Upload your BOQ, rates, and schedule
+   • Follow the FIDIC workflow
+   • Generate variation report
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ Backend won't start:
+   • Check Python version: python --version (need 3.10+)
+   • Reinstall deps: pip install -r backend/requirements.txt
+   • Check GROQ_API_KEY in backend/.env
+
+❌ Frontend won't start:
+   • Check Node version: node --version (need 18+)
+   • Reinstall deps: cd frontend && npm install
+   • Check VITE_API_BASE_URL in frontend/.env
+
+❌ Port already in use:
+   • Find process: netstat -ano | findstr :8000 (Windows)
+   • Kill process: taskkill /PID <PID> /F
+   • Or use different port in configuration
+
+❌ "Cannot reach backend" in frontend:
+   • Verify backend is running: curl http://localhost:8000/health
+   • Check frontend .env has VITE_API_BASE_URL=http://localhost:8000
+   • Restart frontend server: npm run dev
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ IMPORTANT FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Configuration:
+  • backend/.env - Backend API key and settings
+  • frontend/.env - Frontend API URL and settings
+
+Documentation:
+  • SETUP_GUIDE.md - Detailed setup instructions ⭐ START HERE
+  • README.md - Project overview
+  • PROJECT_STATUS.md - Current system status
+  • WORKING_STATUS.md - What was fixed
+  • USER_MANUAL.md - How to use system
+  • USER_FLOW.md - Example scenario
+
+Code:
+  • backend/main.py - FastAPI application
+  • backend/requirements.txt - Python dependencies
+  • frontend/src/App.tsx - React main component
+  • frontend/package.json - Node dependencies
+  • frontend/vite.config.ts - Vite configuration
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ URLS & PORTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Frontend:        http://localhost:5174
+Backend API:     http://localhost:8000
+API Docs:        http://localhost:8000/docs
+API ReDoc:       http://localhost:8000/redoc
+Health Check:    http://localhost:8000/health
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ USEFUL COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Check versions:
+  python --version
+  node --version
+  npm --version
+
+Test backend:
+  curl http://localhost:8000/health
+  curl http://localhost:8000/variation-types
+
+Install/update deps:
+  pip install -r backend/requirements.txt
+  cd frontend && npm install
+
+Stop servers:
+  Press Ctrl+C in both terminals
+
+Restart servers:
+  1. Stop both (Ctrl+C)
+  2. Terminal 1: python -m backend.main
+  3. Terminal 2: npm run dev
+
+Clear cache (if issues):
+  pip cache purge
+  npm cache clean --force && npm install
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 Ready to evaluate variations? Start with SETUP_GUIDE.md for detailed help!
+
+Last updated: May 7, 2026
+Project status: ✅ FULLY OPERATIONAL
