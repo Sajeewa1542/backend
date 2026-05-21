@@ -2,15 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/backend/",
+      "src": "api/index.py",
       "use": "@vercel/python"
     }
   ],
-  "installCommand": "pip install -r backend/backend/requirements.txt",
+  "installCommand": "pip install -r backend/requirements.txt",
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/backend/backend/main.py"
+      "dest": "api/index.py"
     }
   ]
 }
