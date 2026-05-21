@@ -4,6 +4,9 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from datetime import datetime
 import os
 
+TABLE_GRID_STYLE = "Table Grid"
+LIST_BULLET_STYLE = "List Bullet"
+
 
 class DOCXGenerator:
     """Editable Word variation proposal generator for QS review."""
@@ -29,7 +32,7 @@ class DOCXGenerator:
     @staticmethod
     def _add_kv_table(doc, rows):
         table = doc.add_table(rows=1, cols=2)
-        table.style = "Table Grid"
+        table.style = TABLE_GRID_STYLE
         hdr = table.rows[0].cells
         hdr[0].text = "Item"
         hdr[1].text = "Details"
@@ -105,7 +108,7 @@ class DOCXGenerator:
 
         cost_lines = proposal_data.get("cost_lines", [])
         table = doc.add_table(rows=1, cols=7)
-        table.style = "Table Grid"
+        table.style = TABLE_GRID_STYLE
         headers = ["Line Type", "Description", "Qty", "Unit", "Rate", "Amount", "Formula"]
         for i, h in enumerate(headers):
             table.rows[0].cells[i].text = h
@@ -155,7 +158,7 @@ class DOCXGenerator:
         DOCXGenerator._add_heading(doc, "6. Rate Source Evidence Used", 1)
         used_sources = proposal_data.get("used_rate_sources", [])
         table = doc.add_table(rows=1, cols=7)
-        table.style = "Table Grid"
+        table.style = TABLE_GRID_STYLE
         headers = ["Source Type", "Source File", "Reference", "Description", "Unit", "Rate", "Confidence"]
         for i, h in enumerate(headers):
             table.rows[0].cells[i].text = h
@@ -186,16 +189,16 @@ class DOCXGenerator:
             if warnings:
                 doc.add_paragraph("Warnings:")
                 for w in warnings:
-                    doc.add_paragraph(str(w), style="List Bullet")
+                    doc.add_paragraph(str(w), style=LIST_BULLET_STYLE)
             if errors:
                 doc.add_paragraph("Errors:")
                 for e in errors:
-                    doc.add_paragraph(str(e), style="List Bullet")
+                    doc.add_paragraph(str(e), style=LIST_BULLET_STYLE)
 
         DOCXGenerator._add_heading(doc, "8. Assumptions and QS Editable Notes", 1)
         doc.add_paragraph("Assumptions:")
         for a in proposal_data.get("assumptions", ["Rates and productivity values are subject to QS/Engineer review."]):
-            doc.add_paragraph(str(a), style="List Bullet")
+            doc.add_paragraph(str(a), style=LIST_BULLET_STYLE)
 
         doc.add_paragraph("")
         doc.add_paragraph("QS / Engineer Notes:")

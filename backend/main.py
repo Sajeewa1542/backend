@@ -178,7 +178,7 @@ def _build_activity_candidates(
     search_query: str,
     activities: List[Dict[str, Any]],
     normalization_map: Dict[str, str],
-    selected_boq_item: Dict[str, Any] = None,
+    selected_boq_item: Optional[Dict[str, Any]] = None,
 ) -> List[Dict[str, Any]]:
     # If BOQ item selected, include its description in search
     search_text = search_query
@@ -713,7 +713,7 @@ async def upload_files(
         os.makedirs(upload_dir, exist_ok=True)
         
         # Create Project
-        proj_name = boq.filename.split('.')[0] if boq else f"Project_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        proj_name = os.path.splitext(boq.filename)[0] if boq and boq.filename else f"Project_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         project = storage.create_project(
             name=proj_name,
             boq_filename=boq.filename if boq else None,
@@ -745,6 +745,8 @@ async def upload_files(
         
         # Process BOQ
         if boq:
+            if not boq.filename:
+                raise HTTPException(status_code=400, detail="BOQ filename is missing")
             path = os.path.join(upload_dir, boq.filename)
             with open(path, "wb") as buffer:
                 shutil.copyfileobj(boq.file, buffer)
@@ -774,6 +776,8 @@ async def upload_files(
         
         # Process Rate Breakdown
         if breakdown:
+            if not breakdown.filename:
+                raise HTTPException(status_code=400, detail="Rate breakdown filename is missing")
             path = os.path.join(upload_dir, breakdown.filename)
             with open(path, "wb") as buffer:
                 shutil.copyfileobj(breakdown.file, buffer)
@@ -794,6 +798,8 @@ async def upload_files(
         
         # Process Schedule
         if schedule:
+            if not schedule.filename:
+                raise HTTPException(status_code=400, detail="Schedule filename is missing")
             path = os.path.join(upload_dir, schedule.filename)
             with open(path, "wb") as buffer:
                 shutil.copyfileobj(schedule.file, buffer)
@@ -1073,6 +1079,9 @@ async def chat(request: ChatRequest, storage: StorageManager = Depends(get_stora
         relevant_matches = cost_engine.ml_model.find_similar_items(search_query, top_n=20)
         
         project = storage.get_project(project_id)
+        # storage.get_project may return None; guard against that
+        if not project:
+            project = {}
         proj_name = project.get("name", "Unknown Project")
         
         context_str = f"PROJECT NAME: {proj_name}\n"
@@ -1354,7 +1363,15 @@ def get_variation(project_id: int, variation_id: int, storage: StorageManager = 
 def validate_variation(project_id: int, variation_id: int, storage: StorageManager = Depends(get_storage)):
     """Run QS validation checks on a variation"""
     validator = ValidationEngine(storage)
-    results = validator.validate_variation(project_id, variation_id)
+    project = storage.get_project(project_id)
+    variation = storage.get_variation(project_id, variation_id)
+    if not project or not variation:
+        raise HTTPException(status_code=404, detail="Project or variation not found")
+    
+    cost_impact = variation.get("cost_impact", 0)
+    time_impact = variation.get("time_impact", 0)
+    
+    results = validator.validate_variation(project, variation, cost_impact, time_impact)
     return results
 
 @app.get("/variation/validation-report/{project_id}/{variation_id}")

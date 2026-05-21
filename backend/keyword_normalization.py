@@ -7,7 +7,7 @@ from typing import Dict, Iterable, List, Optional
 
 
 def load_keyword_normalization_map(project: Optional[Dict[str, object]] = None) -> Dict[str, str]:
-    project_map = {}
+    project_map: Dict[str, object] = {}
     if project and isinstance(project.get("keyword_normalization_map"), dict):
         project_map = project.get("keyword_normalization_map")  # type: ignore[assignment]
 
