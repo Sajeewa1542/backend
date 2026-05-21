@@ -7,6 +7,7 @@ import shutil
 import pydantic
 import os
 import re
+import importlib
 from datetime import datetime
 from .storage_manager import StorageManager, storage_manager
 from dotenv import load_dotenv
@@ -35,17 +36,60 @@ app.add_middleware(
 def get_storage() -> StorageManager:
     return storage_manager
 
-# Import engines and managers
-from .engine import CostEngine, TimeEngine
-from .session_manager import SessionManager
-from .validation_engine import ValidationEngine
-from .ocr_processor import ocr_processor
-from .pdf_utils import PDFGenerator
-from .docx_utils import DOCXGenerator
-from .rate_source_extractor import rate_source_extractor
-from .rate_resolver import rate_resolver
-from .keyword_normalization import load_keyword_normalization_map, tokenize_for_matching, tokens_contained
-from .variation_evaluator import variation_evaluator
+
+def _runtime_path(*parts: str) -> str:
+    if os.getenv("VERCEL"):
+        return os.path.join("/tmp", *parts)
+    return os.path.join(*parts)
+
+
+def _append_runtime_log(*parts: str, message: str) -> None:
+    path = _runtime_path(*parts)
+    directory = os.path.dirname(path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+    with open(path, "a") as handle:
+        handle.write(message)
+
+
+class _LazyImport:
+    def __init__(self, module_name: str, attribute_name: str):
+        self.module_name = module_name
+        self.attribute_name = attribute_name
+        self._value = None
+
+    def _load(self):
+        if self._value is None:
+            module = importlib.import_module(self.module_name, package=__package__)
+            self._value = getattr(module, self.attribute_name)
+        return self._value
+
+    def __call__(self, *args, **kwargs):
+        return self._load()(*args, **kwargs)
+
+    def __getattr__(self, name):
+        return getattr(self._load(), name)
+
+
+# Heavy data/ML/PDF modules are loaded only when an endpoint actually needs them.
+CostEngine = _LazyImport(".engine", "CostEngine")
+TimeEngine = _LazyImport(".engine", "TimeEngine")
+SessionManager = _LazyImport(".session_manager", "SessionManager")
+ValidationEngine = _LazyImport(".validation_engine", "ValidationEngine")
+ocr_processor = _LazyImport(".ocr_processor", "ocr_processor")
+PDFGenerator = _LazyImport(".pdf_utils", "PDFGenerator")
+DOCXGenerator = _LazyImport(".docx_utils", "DOCXGenerator")
+rate_source_extractor = _LazyImport(".rate_source_extractor", "rate_source_extractor")
+rate_resolver = _LazyImport(".rate_resolver", "rate_resolver")
+variation_evaluator = _LazyImport(".variation_evaluator", "variation_evaluator")
+load_keyword_normalization_map = _LazyImport(".keyword_normalization", "load_keyword_normalization_map")
+tokenize_for_matching = _LazyImport(".keyword_normalization", "tokenize_for_matching")
+tokens_contained = _LazyImport(".keyword_normalization", "tokens_contained")
+
+
+@app.get("/")
+def read_root():
+    return {"status": "ok", "service": "Hybrid Variation Evaluation API"}
 
 
 VARIATION_EVALUATION_MODES = {
@@ -306,19 +350,17 @@ def _normalize_boq_candidate(candidate: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def _enrich_activity_candidates_with_project_data(
-    candidates: List[Dict[str, Any]],
+    candidates: List[Dict[str, Any]], 
     project_activities: List[Dict[str, Any]]
 ) -> List[Dict[str, Any]]:
     """
     Enrich activity candidates by looking up actual activity data from the project.
     Replaces AI-extracted placeholders with real project data.
     """
-    with open("debug_activities.log", "a") as f:
-        f.write(f"[ENRICH] Called with {len(candidates)} candidates, {len(project_activities)} activities\n")
+    _append_runtime_log("debug_activities.log", message=f"[ENRICH] Called with {len(candidates)} candidates, {len(project_activities)} activities\n")
     
     if not project_activities:
-        with open("debug_activities.log", "a") as f:
-            f.write(f"[ENRICH] No project activities, returning original candidates\n")
+        _append_runtime_log("debug_activities.log", message="[ENRICH] No project activities, returning original candidates\n")
         return candidates
     
     enriched = []
@@ -331,8 +373,7 @@ def _enrich_activity_candidates_with_project_data(
             for pa in project_activities:
                 if str(pa.get("activity_id") or pa.get("id")) == str(activity_id):
                     matched_activity = pa
-                    with open("debug_activities.log", "a") as f:
-                        f.write(f"[ENRICH] Found match for activity {activity_id}: {pa.get('name')}\n")
+                    _append_runtime_log("debug_activities.log", message=f"[ENRICH] Found match for activity {activity_id}: {pa.get('name')}\n")
                     break
         
         if matched_activity:
@@ -351,8 +392,7 @@ def _enrich_activity_candidates_with_project_data(
             enriched.append(enriched_candidate)
         else:
             if activity_id:
-                with open("debug_activities.log", "a") as f:
-                    f.write(f"[ENRICH] No match found for activity {activity_id}\n")
+                _append_runtime_log("debug_activities.log", message=f"[ENRICH] No match found for activity {activity_id}\n")
             enriched.append(candidate)
     
     return enriched
@@ -709,7 +749,7 @@ async def upload_files(
     Supports Excel and CSV for BOQ/Schedule, PDF/Excel/CSV for Rate Breakdown
     """
     try:
-        upload_dir = "uploaded_files"
+        upload_dir = _runtime_path("uploaded_files")
         os.makedirs(upload_dir, exist_ok=True)
         
         # Create Project
@@ -881,7 +921,7 @@ async def upload_quotation(
     Extracts rates for use in Star Rate derivation.
     """
     try:
-        upload_dir = "uploaded_files"
+        upload_dir = _runtime_path("uploaded_files")
         os.makedirs(upload_dir, exist_ok=True)
         
         filename = f"quotation_{int(datetime.now().timestamp())}_{file.filename}"
@@ -920,7 +960,7 @@ async def upload_additional_files(
 ):
     """Upload additional supporting files (BSR, HSR, Quotations, etc.)"""
     try:
-        upload_dir = "uploaded_files/additional"
+        upload_dir = _runtime_path("uploaded_files", "additional")
         os.makedirs(upload_dir, exist_ok=True)
         
         uploaded_files = []
@@ -1037,8 +1077,7 @@ async def chat(request: ChatRequest, storage: StorageManager = Depends(get_stora
     sys.stderr.flush()
     
     try:
-        with open("backend/data/debug.log", "a") as f:
-            f.write(f"[CHAT-ENDPOINT] Called for project {request.project_id}\n")
+        _append_runtime_log("backend", "data", "debug.log", message=f"[CHAT-ENDPOINT] Called for project {request.project_id}\n")
         
         # Initialize managers and engines
         session_manager = SessionManager(storage)
@@ -1091,12 +1130,11 @@ async def chat(request: ChatRequest, storage: StorageManager = Depends(get_stora
         
         # Get relevant activities (with normalization mapping if provided)
         activities = project.get("activities", [])
-        with open("backend/data/debug.log", "a") as f:
-            f.write(f"[CHAT] Project {project_id} has {len(activities)} activities\n")
-            if activities:
-                f.write(f"[CHAT] Sample: {[a.get('activity_id') or a.get('id') for a in activities[:3]]}\n")
-            if activities:
-                f.write(f"[CHAT] Sample: {[a.get('activity_id') or a.get('id') for a in activities[:3]]}\n")
+        activity_debug = f"[CHAT] Project {project_id} has {len(activities)} activities\n"
+        if activities:
+            activity_debug += f"[CHAT] Sample: {[a.get('activity_id') or a.get('id') for a in activities[:3]]}\n"
+            activity_debug += f"[CHAT] Sample: {[a.get('activity_id') or a.get('id') for a in activities[:3]]}\n"
+        _append_runtime_log("backend", "data", "debug.log", message=activity_debug)
         normalization_map = load_keyword_normalization_map(project)
         keywords = tokenize_for_matching(search_query, mapping=normalization_map)
         relevant_activities = [
@@ -1168,8 +1206,7 @@ async def chat(request: ChatRequest, storage: StorageManager = Depends(get_stora
 
         # Pass selected BOQ item for better activity matching context
         selected_boq = affected_boq_candidates[0] if affected_boq_candidates else None
-        with open("debug_activities.log", "a") as f:
-            f.write(f"[CANDIDATES] Building activity candidates with {len(activities)} activities\n")
+        _append_runtime_log("debug_activities.log", message=f"[CANDIDATES] Building activity candidates with {len(activities)} activities\n")
         deterministic_activity_candidates = _build_activity_candidates(
             search_query,
             activities,
@@ -1338,12 +1375,9 @@ async def chat(request: ChatRequest, storage: StorageManager = Depends(get_stora
         }
         
     except Exception as e:
-        with open("backend/data/debug.log", "a") as f:
-            f.write(f"[ERROR] {e}\n")
-            import traceback
-            f.write(traceback.format_exc())
-        print(f"CHAT ERROR: {e}")
         import traceback
+        _append_runtime_log("backend", "data", "debug.log", message=f"[ERROR] {e}\n{traceback.format_exc()}")
+        print(f"CHAT ERROR: {e}")
         traceback.print_exc()
         return {"status": "error", "message": str(e), "traceback": traceback.format_exc()}
 
@@ -1599,7 +1633,7 @@ async def confirm_and_evaluate(
 
         proposal_data = _build_variation_proposal_data(project, variation, evaluation_result)
 
-        output_dir = os.path.join("backend", "generated_reports")
+        output_dir = _runtime_path("backend", "generated_reports")
         os.makedirs(output_dir, exist_ok=True)
 
         pdf_url = None
@@ -1662,7 +1696,7 @@ async def confirm_and_evaluate(
 async def generate_pdf(request: dict):
     """Generate variation proposal PDF"""
     try:
-        output_dir = os.path.join("backend", "generated_reports")
+        output_dir = _runtime_path("backend", "generated_reports")
         os.makedirs(output_dir, exist_ok=True)
         output_path = os.path.join(output_dir, f"variation_proposal_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf")
         pdf_path = PDFGenerator.generate_variation_proposal(request, output_path)
@@ -1703,7 +1737,7 @@ async def generate_variation_docx(project_id: int, variation_id: int, storage: S
     proposal_data = _build_variation_proposal_data(project, variation, evaluation_result)
 
     try:
-        output_dir = os.path.join("backend", "generated_reports")
+        output_dir = _runtime_path("backend", "generated_reports")
         os.makedirs(output_dir, exist_ok=True)
         docx_path = DOCXGenerator.generate_variation_proposal(
             proposal_data,
@@ -1729,7 +1763,7 @@ async def download_file(filename: str):
     if not any(safe_filename.lower().endswith(ext) for ext in allowed_extensions):
         raise HTTPException(status_code=400, detail="Only PDF and DOCX downloads are allowed")
 
-    file_path = os.path.join("backend", "generated_reports", safe_filename)
+    file_path = _runtime_path("backend", "generated_reports", safe_filename)
 
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="File not found")

@@ -5,6 +5,8 @@ from typing import List, Dict, Any, Optional
 
 class StorageManager:
     def __init__(self, data_dir: str = "backend/data"):
+        if os.getenv("VERCEL") and data_dir == "backend/data":
+            data_dir = "/tmp/backend_data"
         self.data_dir = data_dir
         if not os.path.exists(self.data_dir):
             os.makedirs(self.data_dir, exist_ok=True)

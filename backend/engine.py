@@ -636,7 +636,7 @@ class CostEngine:
         Searches through HSR, BSR, and Quotation files in the upload directory.
         Returns: (rate, source_type, source_reference)
         """
-        upload_dir = "uploaded_files"
+        upload_dir = os.path.join("/tmp", "uploaded_files") if os.getenv("VERCEL") else "uploaded_files"
         if not os.path.exists(upload_dir):
             return 0.0, None, None
             
