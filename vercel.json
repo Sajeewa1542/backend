@@ -7,7 +7,7 @@
       "use": "@vercel/python"
     }
   ],
-  "installCommand": "pip install -r backend/requirements.txt",
+  "installCommand": "pip install -r backend/requirements-vercel.txt",
   "routes": [
     {
       "src": "/(.*)",
