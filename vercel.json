@@ -2,10 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "./backend/main.py",
+      "src": "backend/backend/main.py",
       "use": "@vercel/python"
     }
   ],
+  "installCommand": "pip install -r backend/backend/requirements.txt",
   "routes": [
     {
       "src": "/(.*)",
