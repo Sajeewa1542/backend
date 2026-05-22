@@ -38,6 +38,7 @@ env.bak/
 venv.bak/
 
 # Project specific data / database files
+data/
 uploaded_files/
 construction_data.db
 *.db
@@ -45,11 +46,10 @@ construction_data.db
 
 # Generated reports / proposal outputs
 variation_proposal.pdf
-backend/generated_reports/
+generated_reports/
 
 # Backend runtime/session/generated data
-backend/data/
-backend/data_test/
+data_test/
 
 # Backup files created during fixing/refactoring
 *_BACKUP.py
